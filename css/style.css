@@ -8,7 +8,7 @@
  *
  * Snazte se dodat aspon castecne reseni, i snaha se hodnoti.
  */
-
+/*document--------------------------------------------------------------------------------*/
  body {
   margin: auto 0;
 }
@@ -17,18 +17,22 @@ h2{
   font-family: 'Calistoga', sans-serif;
   letter-spacing:  0.2rem;
 }
-
-#heyoooo{
-  display: none;
-}
 main{
   background-image: url(../img/bg/bg-body.svg);
 }
+
 #about, #team .section-content, #events, #menu .section-content, #services{
   max-width: 1200px;
   min-width: 768px;
   margin: 0 auto;
 }
+/*document---------------------------------------------------------------------------------------*/
+/*Pop-up-----------------------------------------------------------------------------------------*/
+#heyoooo{
+  display: none;
+}
+/*Pop-up-----------------------------------------------------------------------------------------*/
+/*Header-----------------------------------------------------------------------------------------*/
 header {
   display: grid;
   grid-template-areas:
@@ -211,6 +215,8 @@ img{
   text-decoration: none;
   color: black;
 }
+/*Header-----------------------------------------------------------------------------------------*/
+/*About-----------------------------------------------------------------------------------------*/
 #about{
   background-color: white;
   background-image: url(../img/custom/sprites.svg);
@@ -288,6 +294,8 @@ flex-direction: column;
   content: "★";
   color: green;
 }
+/*About-----------------------------------------------------------------------------------------*/
+/*Team-----------------------------------------------------------------------------------------*/
 #team .section-item img {
   width: 275px;
   height: 275px;
@@ -412,7 +420,8 @@ flex-direction: column;
   content: "★";
   color: green;
 }
-
+/*Team-----------------------------------------------------------------------------------------*/
+/*Events-----------------------------------------------------------------------------------------*/
 
 #events{
   background-color: white;
@@ -482,6 +491,9 @@ flex-direction: column;
   overflow: hidden;
 }
 
+/*Events-----------------------------------------------------------------------------------------*/
+/*Menu-----------------------------------------------------------------------------------------*/
+
 #menu {
   background-image: url(../img/bg/bg-menu.jpg);
   background-repeat: no-repeat;
@@ -544,8 +556,8 @@ flex-direction: column;
   grid-column-start: 1;
   grid-row-start: 1;
 }
-
-/* servis */
+/*Menu-----------------------------------------------------------------------------------------*/
+/*Services-----------------------------------------------------------------------------------------*/
 
 #services{
   width: 1200px;
@@ -617,10 +629,10 @@ flex-direction: column;
   content: "$";
   color: white;
 } */
+/*Services-----------------------------------------------------------------------------------------*/
 
 
-
-/* contact */
+/*Contacts-----------------------------------------------------------------------------------------*/
 #contact {
   background-image: url(../img/bg/bg-contact.jpg);
   padding-top: 50px;
@@ -739,13 +751,9 @@ flex-direction: column;
   opacity: 0.5;
 }
 
-/* posledna vec */
+/*Contacts-----------------------------------------------------------------------------------------*/
+/*Sweatshop-----------------------------------------------------------------------------------------*/
 
-
-
-
-
-/* sipka co je v pravo dole*/
 #sweatshop {
   position:   fixed;
   bottom: 10px;
@@ -767,3 +775,4 @@ flex-direction: column;
   color: rgb(144, 238, 144);
   text-decoration: none;
 }
+/*Sweatshop-----------------------------------------------------------------------------------------*/
