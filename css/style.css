@@ -8,17 +8,29 @@
  *
  * Snazte se dodat aspon castecne reseni, i snaha se hodnoti.
  */
-/*document--------------------------------------------------------------------------------*/
- body {
+
+@font-face {
+  font-family: Textile;
+  src: url('../fonts/textile.ttf') format('truetype');
+}
+html{
+  margin: 0;
+  padding: 0;
+}
+
+body {
   margin: auto 0;
+  background-image: url(../img/bg/bg-body.svg);
+  padding: 0;
 }
 
 h2{
   font-family: 'Calistoga', sans-serif;
   letter-spacing:  0.2rem;
 }
-main{
-  background-image: url(../img/bg/bg-body.svg);
+
+#heyoooo{
+  display: none;
 }
 
 #about, #team .section-content, #events, #menu .section-content, #services{
@@ -26,30 +38,31 @@ main{
   min-width: 768px;
   margin: 0 auto;
 }
-/*document---------------------------------------------------------------------------------------*/
-/*Pop-up-----------------------------------------------------------------------------------------*/
-#heyoooo{
-  display: none;
-}
-/*Pop-up-----------------------------------------------------------------------------------------*/
-/*Header-----------------------------------------------------------------------------------------*/
+
+
 header {
-  display: grid;
-  grid-template-areas:
-    'title title title title'
-    'nav nav nav nav';
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: center;
+  align-items: center;
+  
 }
 
 #header-menu {
-  grid-area: nav;
-  border-top: 2px dotted green;
-  border-bottom: 2px dotted green;
-  position: absolute;
+  border-top: 2px dotted lightgreen;
+  border-bottom: 2px dotted lightgreen;
+  position: relative;
   display: flex;
   justify-content: center;
   justify-self: center;
-  top: 750px;
-  width: 768px;
+  margin-top: 5%;
+  font-size: 1.25rem;
+}
+
+#header-menu ul{
+  list-style: none;
+  display: flex;
+  margin: 0px;
 }
 
 #header-menu li {
@@ -63,7 +76,7 @@ header {
 }
 
 #header-menu li:nth-child(3)::after {
-  margin-left: 25px;
+  margin-left: 85px;
   content: url(../img/custom/leaf.svg);
   display: inline-block;
   transform: scale(0.4) rotate(90deg);
@@ -73,22 +86,43 @@ header {
   left: 340px;
 }
 
+#header-menu a{
+  font-size: 1.25rem; 
+  text-decoration: none;
+  color: black;
+}
+
+#header-menu a:hover{
+  color: lightgreen;
+}
+
+img{
+  max-width: 1200px;
+}
+
+#header-menu::before{
+  content: url(../img/custom/beers.png);
+  position: absolute;
+  
+}
+
 /* title */
 
 #header-title {
-  grid-area: title;
   display: flex;
+  position: relative; 
+  width: 100%;
+  height: calc(90vh);
   flex-direction: column;
   justify-content: center;
   align-items: center;
   background-image: url(../img/bg/bg-header.jpg);
   background-repeat: no-repeat;
-  background-size: cover;
-  min-height: 500px;
+  background-size: 100% 70%;
   background-attachment: fixed;
-  background-position: center;
+  background-position: center top;
   overflow: hidden;
-  line-height: 1;
+  min-height: 500px;
 }
 
 #header-title span {
@@ -97,6 +131,7 @@ header {
   text-shadow: 0 0 10px rgb(144, 238, 144);
   font-family: 'Calistoga', sans-serif;
   margin: 0;
+  
 }
 
 :not(.scrolled) #header-title span:nth-child(1){
@@ -114,15 +149,34 @@ header {
 
 :not(.scrolled) #header-title span:nth-child(2){
   animation: an-title 2.5s forwards; 
+  font-size: calc(3vw + 5px);
+  position: relative;
+  display: inline-block;
 }
 .scrolled #header-title span:nth-child(2) {
   opacity: 0;
   animation: none; 
 }
-#header-title span:nth-child(2){
-  font-size: calc(3vw + 5px);
-  position: relative;
+#header-title span:nth-child(2)::before,
+#header-title span:nth-child(2)::after {
+  content: "";
+  position: absolute;
+  background-image: url(../img/custom/flag.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 100px;
+  height: 100px;
 }
+
+#header-title span:nth-child(2)::before {
+  left: -120px; /* Adjust the position of the flag before the span */
+}
+
+#header-title span:nth-child(2)::after {
+  transform:  rotateY(180deg);
+  right: -120px; /* Adjust the position of the flag after the span */
+}
+
 
 
 :not(.scrolled) #header-title span:nth-child(3){
@@ -135,31 +189,9 @@ header {
 #header-title span:nth-child(3){
   font-size: calc(2vw +1px);
 }
-#header-title span:nth-child(3)::before{
-  content: ""; 
-  display: inline-block; 
-  background-image: url(../img/custom/flag.svg);
-  background-size: contain; 
-  background-repeat: no-repeat; 
-  background-position: center; 
-  width: 100px; 
-  height: 100px; 
- 
-  padding-right: 50px;
-}
-#header-title span:nth-child(3)::after{
-  content: ""; 
-  display: inline-block; 
-  background-image: url(../img/custom/flag.svg);
-  background-size: contain; 
-  background-repeat: no-repeat; 
-  background-position: center; 
-  width: 100px;
-  height: 100px; 
-  transform:  rotateY(180deg);
-  padding-right: 50px;
-  
-}
+
+
+
 
 :not(.scrolled) #header-title span:nth-child(4){
   animation: an-title 3.5s forwards; 
@@ -180,6 +212,7 @@ header {
 #header-title span:nth-child(4)::before{
   content: '"';
 }
+
 @keyframes an-title {
   0% {
     opacity: 0;
@@ -191,95 +224,58 @@ header {
   }
 }
 
-#header-title::after{
+/* #header-title::after{
   content: url(../img/custom/beers.png);
   position: absolute;
-  bottom: 2vw;
-  left: -20px;
-  width: calc(100% + 20px);
-  overflow: hidden;
-  object-fit: cover;
-  
+  bottom: 0;
+} */
+
+
+
+
+main{
+  margin: 0;
+  padding: 0;
 }
 
-img{
-  max-width: 1200px;
-}
-
-#header-menu ul{
-  list-style: none;
-  display: flex;
-  margin: 0px;
-}
-#header-menu a{
-  text-decoration: none;
-  color: black;
-}
-/*Header-----------------------------------------------------------------------------------------*/
-/*About-----------------------------------------------------------------------------------------*/
+/* main */
 #about{
-  background-color: white;
-  background-image: url(../img/custom/sprites.svg);
-  background-repeat: no-repeat;
-  background-position: -1800px 0;
-  padding-top: 300px;
-  padding-bottom: 200px;
-  border-right: 2px dotted green;
-  border-left: 2px dotted green;
-}
-#about::after {
-  background-image: url(../img/custom/sprites.svg);
-  background-position: 0 0;
-  width: 150px;
-  height: 320px;
-  content: "";
-  position: absolute;
-  top: 750px;
-  right: 250px;
-  transform: rotate(-45deg);
-}
-
-#about::before {
-  background-image: url(../img/custom/sprites.svg);
-  width: 150px;
-  height: 320px;
-  content: "";
-  background-position: -450px 0;
-  position: absolute;
-  top: 1250px;
-  left: 210px;
-  transform: rotate(-45deg);
-}
-#sweatshop {
-  position: absolute;
   display: flex;
-  border: solid 2px green;
-  bottom: 10px;
-  right: 10px;
-  height: 25px;
-  width: 25px;
   justify-content: center;
   align-items: center;
-  text-decoration: none;
-}
-#sweatshop:hover {
-  color: red;
+  margin-top: 100px;
+  flex-direction: column;
+  padding-top: 100px;
+  padding-bottom: 100px;
+
+  background-color: white;
+  border-right: 2px dotted lightgreen;
+  border-left: 2px dotted lightgreen;
 }
 
 #about .heading{
   text-align: center;
+  
 }
-#about{
-display: flex;
-justify-content: center;
-align-items: center;
-margin-top: 100px;
-flex-direction: column;
+
+#about .heading h2{
+  margin: 0;
+  padding: 0;
+  color: green;
+  font-size: 16px;
 }
+#about .heading span{
+  font-family: 'Textile', sans-serif;
+  font-size: 1.5rem;
+  margin: 0;
+  padding: 0;
+}
+
 
 #about .references a {
   display: none;
 }
+
 #about ul {
   list-style: none;
   padding: 0;
@@ -294,8 +290,82 @@ flex-direction: column;
   content: "★";
   color: green;
 }
-/*About-----------------------------------------------------------------------------------------*/
-/*Team-----------------------------------------------------------------------------------------*/
+
+#about li:hover{
+  color: lightblue;
+}
+
+/* video */
+.video-player {
+  position: relative;
+  width: 100%;
+  max-width: 600px; /* Adjust as needed */
+}
+
+.video-content {
+  position: relative;
+}
+
+.video-content video {
+  width: 100%;
+  display: block;
+}
+
+.video-controls {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 5px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.video-controls button {
+  background-color: transparent;
+  border: none;
+  color: green;
+  cursor: pointer;
+  outline: none;
+}
+
+.progress {
+  flex-grow: 1;
+  margin: 0 10px;
+}
+
+.progress-bar {
+  background-color: green;
+  height: 5px;
+}
+
+.time {
+  color: green;
+  font-size: 14px;
+}
+/* Play/Pause Button Styles */
+.playpause::before {
+  content: '\25B6'; /* Unicode triangle for play */
+  font-family: 'Font Awesome'; /* Use a font that includes the triangle icon */
+}
+
+.playing .playpause::before {
+  content: '\II'; /* Unicode double vertical bar for pause */
+}
+
+/* Mute Button Styles */
+.mute::before {
+  content: '\1F508'; /* Unicode speaker with cancellation stroke for unmuted */
+  font-family: 'Font Awesome'; /* Use a font that includes the speaker icon */
+}
+
+.muted .mute::before {
+  content: '\1F507'; /* Unicode speaker for muted */
+}
+/* TEAM */
+
 #team .section-item img {
   width: 275px;
   height: 275px;
@@ -420,8 +490,7 @@ flex-direction: column;
   content: "★";
   color: green;
 }
-/*Team-----------------------------------------------------------------------------------------*/
-/*Events-----------------------------------------------------------------------------------------*/
+
 
 #events{
   background-color: white;
@@ -491,9 +560,6 @@ flex-direction: column;
   overflow: hidden;
 }
 
-/*Events-----------------------------------------------------------------------------------------*/
-/*Menu-----------------------------------------------------------------------------------------*/
-
 #menu {
   background-image: url(../img/bg/bg-menu.jpg);
   background-repeat: no-repeat;
@@ -511,7 +577,7 @@ flex-direction: column;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  background-color: rgba(144, 238, 144, 0.8)
+  background-color: lightgreen;
 }
 
 #menu .section-item {
@@ -556,8 +622,8 @@ flex-direction: column;
   grid-column-start: 1;
   grid-row-start: 1;
 }
-/*Menu-----------------------------------------------------------------------------------------*/
-/*Services-----------------------------------------------------------------------------------------*/
+
+/* servis */
 
 #services{
   width: 1200px;
@@ -570,7 +636,7 @@ flex-direction: column;
 }
 
 #services .heading h2{
-  color: rgb(144, 238, 144);
+  color: lightgreen;
   
 }
 
@@ -589,7 +655,6 @@ flex-direction: column;
 #services table{
   display: grid;
   margin-left: 35px;
-  border-spacing: 0 20px;
 }
 
 #services table::after{
@@ -613,26 +678,24 @@ flex-direction: column;
   text-decoration: none;
 }
 
-#services .section-content td{
-  border-bottom: 1px dotted white;
-  width: 40%;
+#services .section-content td:first-child::after{
+  content: '............'; 
+  
+  color: white; 
 }
 
 #services .section-content td:last-child{
   text-align: right;
 }
 
-
-
-
-/* #services .section-content td:last-child::before{
+#services .section-content td:last-child::before{
   content: "$";
   color: white;
-} */
-/*Services-----------------------------------------------------------------------------------------*/
+}
 
 
-/*Contacts-----------------------------------------------------------------------------------------*/
+
+/* contact */
 #contact {
   background-image: url(../img/bg/bg-contact.jpg);
   padding-top: 50px;
@@ -651,7 +714,7 @@ flex-direction: column;
 
 #contact .heading h2{
   text-align: center;
-  color: rgb(144, 238, 144);
+  color: lightgreen;
 }
 
 #contact  .heading span{
@@ -747,13 +810,17 @@ flex-direction: column;
 }
 
 #contact .section-content .contact-form select, textarea{
-  background-color: rgb(144, 238, 144);
+  background-color: lightgreen;
   opacity: 0.5;
 }
 
-/*Contacts-----------------------------------------------------------------------------------------*/
-/*Sweatshop-----------------------------------------------------------------------------------------*/
+/* posledna vec */
 
+
+
+
+
+/* sipka co je v pravo dole*/
 #sweatshop {
   position:   fixed;
   bottom: 10px;
@@ -761,7 +828,7 @@ flex-direction: column;
   display: flex;
   width: 40px;
   height: 40px;
-  border: solid rgb(144, 238, 144);
+  border: solid lightgreen;
   justify-content: center;
   align-items: center;
   text-decoration: none;
@@ -772,7 +839,6 @@ flex-direction: column;
 }
 #sweatshop .fa-arrow-up{
   font-size: 20px;
-  color: rgb(144, 238, 144);
+  color: lightgreen;
   text-decoration: none;
 }
-/*Sweatshop-----------------------------------------------------------------------------------------*/
