@@ -667,7 +667,22 @@ main{
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  background-color: lightgreen;
+}
+#menu .description span::before{
+  content: "$";
+}
+#menu .section-item:nth-child(1) .description,
+#menu .section-item:nth-child(3) .description,
+#menu .section-item:nth-child(7) .description{
+  background-color: rgba(144, 238, 144, 0.75);
+}
+#menu .section-item:nth-child(2) .description,
+#menu .section-item:nth-child(6) .description{
+  background-color: rgba(236, 167, 200, 0.75);
+}
+#menu .section-item:nth-child(4) .description,
+#menu .section-item:nth-child(5) .description{
+  background-color: rgba(226, 221, 222, 0.75);
 }
 
 #menu .section-item {
