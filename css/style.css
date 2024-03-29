@@ -541,10 +541,33 @@ main{
   border-right: 2px dotted lightgreen;
   border-left: 2px dotted lightgreen;
 }
+#events .references a {
+  display: none;
+}
+#events .section-item ul{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+#events .events-props{
+  display: grid;
+  gap: 10px;
+  place-items: baseline;
+}
+#events li {
+  display: inline;
+  font-size: 25px;
+}
+#events li::before {
+  content: "★";
+  color: green;
+}
+
+
 
 #events .section-item:nth-child(1) img{
-  float: right;
-  justify-content: right;
+  float: left;
+  justify-content: left;
   width: 40%;
   height: auto;
   margin: 10px;
@@ -567,13 +590,13 @@ main{
 #events .section-item:nth-child(2) h3
 , #events .section-item:nth-child(2) .events-props {
   display: flex;
-  justify-content: left;
+  justify-content: right;
   padding-left: 10px;
 }
 
 #events .section-item:nth-child(2) img {
-  float: left;
-  justify-content: left;
+  float: right;
+  justify-content: right;
   width: 40%;
   height: auto;
   margin: 10px 20px 10px 10px;
@@ -588,12 +611,12 @@ main{
 ,#events .section-item:nth-child(3) h3
 , #events .section-item:nth-child(3) .events-props{
   display: flex;
-  justify-content: right;
+  justify-content: left;
   padding-right: 10px ;
 }
 #events .section-item:nth-child(3) img {
-  float: right;
-  justify-content: right;
+  float: left;
+  justify-content: left;
   width: 40%;
   height: auto;
   margin: 10px;
@@ -604,7 +627,6 @@ main{
   border-bottom: 2px black dotted;
   overflow: hidden;
 }
-
 /* menu */
 
 
