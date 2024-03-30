@@ -9,7 +9,7 @@
  * Snazte se dodat aspon castecne reseni, i snaha se hodnoti.
  */
 
-@font-face {
+ @font-face {
   font-family: Textile;
   src: url('../fonts/textile.ttf') format('truetype');
 }
@@ -40,29 +40,25 @@ h2{
 }
 
 
+/*Header-----------------------------------------------------------------------------------------*/
 header {
-  display: flex;
-  flex-direction: column-reverse;
-  justify-content: center;
-  align-items: center;
-  
+  display: grid;
+  grid-template-areas:
+    'title title title title'
+    'nav nav nav nav';
 }
 
 #header-menu {
-  border-top: 2px dotted lightgreen;
-  border-bottom: 2px dotted lightgreen;
-  position: relative;
+  grid-area: nav;
+  border-top: 2px dotted green;
+  border-bottom: 2px dotted green;
+  position: absolute;
   display: flex;
   justify-content: center;
   justify-self: center;
-  margin-top: 5%;
-  font-size: 1.25rem;
-}
-
-#header-menu ul{
-  list-style: none;
-  display: flex;
-  margin: 0px;
+  top: 850px;
+  width: 768px;
+  z-index: 2;
 }
 
 #header-menu li {
@@ -76,7 +72,7 @@ header {
 }
 
 #header-menu li:nth-child(3)::after {
-  margin-left: 85px;
+  margin-left: 25px;
   content: url(../img/custom/leaf.svg);
   display: inline-block;
   transform: scale(0.4) rotate(90deg);
@@ -86,43 +82,21 @@ header {
   left: 340px;
 }
 
-#header-menu a{
-  font-size: 1.25rem; 
-  text-decoration: none;
-  color: black;
-}
-
-#header-menu a:hover{
-  color: lightgreen;
-}
-
-img{
-  max-width: 1200px;
-}
-
-/* #header-menu::before{
-  content: url(../img/custom/beers.png);
-  position: absolute;
-  
-} */
-
 /* title */
 
 #header-title {
-  display: flex;
-  position: relative; 
-  width: 100%;
-  height: calc(90vh);
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  position: relative; /* Add relative positioning */
+  grid-area: title;
+  display: grid;
+  grid-template-columns: 0.75fr 0.3fr 0.3fr 0.3fr 0.3fr 0.75fr;
+  grid-template-rows: 1fr 0.3fr 0.3fr 0.3fr 0.3fr 1fr;
   background-image: url(../img/bg/bg-header.jpg);
   background-repeat: no-repeat;
-  background-size: 100% 70%;
+  background-size: cover;
+  height: 600px;
   background-attachment: fixed;
-  background-position: center top;
-  overflow: hidden;
-  min-height: 500px;
+  background-position: center;
+  line-height: 1;
 }
 
 #header-title span {
@@ -131,85 +105,80 @@ img{
   text-shadow: 0 0 10px rgb(144, 238, 144);
   font-family: 'Calistoga', sans-serif;
   margin: 0;
-  
 }
 
-:not(.scrolled) #header-title span:nth-child(1){
-  animation: an-title 2s forwards; 
-}
-.scrolled #header-title span:nth-child(1) {
-  opacity: 0;
-  animation: none; 
-}
-#header-title span:nth-child(1){
-  font-size: calc(4vw + 20px);
-  
+#header-title span:nth-child(1) {
+  grid-area: Paddy;
+  grid-column-start: 2;
+  grid-column-end: 6;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  font-size: calc(7vw);
+  text-align: center;
 }
 
-
-:not(.scrolled) #header-title span:nth-child(2){
-  animation: an-title 2.5s forwards; 
-  font-size: calc(3vw + 5px);
+#header-title span:nth-child(2) {
+  font-size: calc(4vw + 5px);
   position: relative;
-  display: inline-block;
+  text-align: center;
+  white-space: nowrap;
+  grid-area: Irish;
+  grid-column-start: 3;
+  grid-column-end: 5;
+  grid-row-start: 3;
+  grid-row-end: 4;
 }
-.scrolled #header-title span:nth-child(2) {
-  opacity: 0;
-  animation: none; 
+
+#header-title span:nth-child(3) {
+  font-size: calc(1vw + 10px);
+  grid-area: South;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  grid-column-start: 3;
+  grid-column-end: 5;
+  grid-row-start: 4;
+  grid-row-end: 5;
 }
-#header-title span:nth-child(2)::before,
-#header-title span:nth-child(2)::after {
+
+#header-title span:nth-child(3)::before,
+#header-title span:nth-child(3)::after {
   content: "";
-  position: absolute;
+  display: inline-block;
   background-image: url(../img/custom/flag.svg);
   background-size: contain;
   background-repeat: no-repeat;
+  background-position: center;
   width: 100px;
   height: 100px;
+  position: absolute; /* Add absolute positioning */
 }
 
-#header-title span:nth-child(2)::before {
-  left: -120px; /* Adjust the position of the flag before the span */
+#header-title span:nth-child(3)::before {
+  left: 325px; /* Position the before pseudo-element */
+  top: 260px; /* Position the before pseudo-element */
 }
 
-#header-title span:nth-child(2)::after {
-  transform:  rotateY(180deg);
-  right: -120px; /* Adjust the position of the flag after the span */
+#header-title span:nth-child(3)::after {
+  right: 325px; /* Position the after pseudo-element */
+  top: 260px; /* Position the after pseudo-element */
+  transform: scaleX(-1);
 }
 
-
-
-:not(.scrolled) #header-title span:nth-child(3){
-  animation: an-title 3s forwards; 
-}
-.scrolled #header-title span:nth-child(3) {
-  opacity: 0;
-  animation: none; 
-}
-#header-title span:nth-child(3){
-  font-size: calc(2vw +1px);
-}
-
-
-
-
-:not(.scrolled) #header-title span:nth-child(4){
-  animation: an-title 3.5s forwards; 
-}
-.scrolled #header-title span:nth-child(4) {
-  opacity: 0;
-  animation: none; 
-}
-#header-title span:nth-child(4){
+#header-title span:nth-child(4) {
   text-transform: none;
- 
-  text-align: center;
-  font-size: calc(2vw + 1px);
+  grid-area: Bar;
+  display: flex;
+  align-items: center; 
+  justify-content: center;
+  font-size: calc(2vw + 5px);
+  grid-column-start: 2;
+  grid-column-end: 6;
+  grid-row-start: 5;
+  grid-row-end: 6;
 }
+#header-title span:nth-child(4)::before,
 #header-title span:nth-child(4)::after{
-  content: '"';
-}
-#header-title span:nth-child(4)::before{
   content: '"';
 }
 
@@ -227,7 +196,35 @@ img{
 #header-title::after{
   content: url(../img/custom/beers.png);
   position: absolute;
-  bottom: 0;
+  bottom: -200px;
+  left: -20px;
+  width: calc(100% + 20px);
+  overflow: hidden;
+  object-fit: cover;
+z-index: 5;
+  
+}
+
+/* :not(.scrolled) #header-title span:nth-child(4){
+  animation: an-title 2s forwards; 
+}
+.scrolled #header-title span:nth-child(4) {
+  opacity: 0;
+  animation: none; 
+} */
+
+img{
+  max-width: 1200px;
+}
+
+#header-menu ul{
+  list-style: none;
+  display: flex;
+  margin: 0px;
+}
+#header-menu a{
+  text-decoration: none;
+  color: black;
 }
 
 
@@ -241,11 +238,12 @@ main{
 /* main */
 #about{
   display: flex;
+  position: relative;
   justify-content: center;
   align-items: center;
   margin-top: 100px;
   flex-direction: column;
-  padding-top: 100px;
+  padding-top: 250px;
   padding-bottom: 100px;
 
   background-color: white;
@@ -293,6 +291,11 @@ main{
 
 #about li:hover{
   color: lightblue;
+}
+#about::after {
+  content: url(../img/custom/hr.svg);
+  position: absolute;
+  bottom: -50px;
 }
 
 /* video */
@@ -640,6 +643,7 @@ main{
   border-bottom: 2px black dotted;
   overflow: hidden;
 }
+
 /* menu */
 
 
