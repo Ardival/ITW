@@ -300,11 +300,6 @@ main{
 #about li:hover{
   color: lightblue;
 }
-#about::after {
-  content: url(../img/custom/hr.svg);
-  position: absolute;
-  bottom: -50px;
-}
 
 /* video */
 .video-player {
@@ -348,16 +343,20 @@ main{
 }
 
 .playpause {
+  visibility: hidden;
   background-color: transparent;
   border: none;
   color: green;
   cursor: pointer;
-  grid-column-start: 1;
-  grid-column-end: 2;
-  grid-row-start: 1;
-  grid-row-end: 2;
 }
-
+.playpause::after {
+  content: '\25B6';
+  font-size: 25px;
+  visibility: visible;
+  position: absolute;
+  left: 15px;
+  top: 0;
+}
 /* .playpause::after {
   content: "";
   border-style: solid;
@@ -370,18 +369,21 @@ main{
   border: none;
   color: green;
   cursor: pointer;
-  grid-column-start: 2;
-  grid-column-end: 3;
-  grid-row-start: 1;
-  grid-row-end: 2;
+  visibility: hidden;
+}
+.mute::after {
+  content: '\1F50A';
+  font-size: 25px;
+  visibility: visible;
+  position: absolute;
+  left: 50px;
+  top: -4px;
 }
 
-/* .mute::after {
-  content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"><path d="M10 4v4h4l5 5v6l-1.79-1.79A7.96 7.96 0 0 0 19 12c0-4.42-3.58-8-8-8zm-1.5 7.5l-4-4L5 8.91 6.91 10H3v4h3.91L5 15.09 4.5 15.5l4-4zM12 6h2l6 6v4l-2 2v-1.91l2-2V12l-5-5h-3V6zm-2 2v2H8.91L10 8.91z"/></svg>');
-} */
 
 .fullscreen {
   background-color: transparent;
+  visibility: hidden;
   border: none;
   color: green;
   cursor: pointer;
@@ -390,17 +392,17 @@ main{
   grid-row-start: 1;
   grid-row-end: 2;
 }
-
-/* .fullscreen::after {
-  content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"><path d="M5 3v3h3M16 3h3v3M5 16V8h3m10 10v-3h3M5 5h14v14H5z"/></svg>');
-} */
+.fullscreen::after{
+  content: '\26F6';
+  visibility: visible;
+  font-size: 25px;
+}
 
 .time {
   color: green;
-  grid-column-start: 3;
-  grid-column-end: 4;
-  grid-row-start: 1;
-  grid-row-end: 2;
+  position: absolute;
+  left: 100px;
+  top: 5px;
 }
 
 
@@ -419,10 +421,28 @@ main{
   background-image: url(../img/bg/bg-team.jpg);
   background-repeat: no-repeat;
   background-size: cover;
-  padding: 50px 0;
+  padding: 70px 0;
+  position: relative;
 
 }
-
+#team::after {
+  content: url(../img/custom/hr.svg);
+  position: absolute;
+  top: -50px;
+  left: -20px;
+  width: calc(100% + 20px);
+  overflow: hidden;
+  object-fit: cover;
+}
+#team::before {
+  content: url(../img/custom/hr.svg);
+  position: absolute;
+  bottom: -50px;
+  left: -20px;
+  width: calc(100% + 20px);
+  overflow: hidden;
+  object-fit: cover;
+}
 #team .heading{
   text-align: center;
 }
@@ -688,7 +708,26 @@ main{
   background-image: url(../img/bg/bg-menu.jpg);
   background-repeat: no-repeat;
   background-size: cover;
-  padding: 50px 0;
+  padding: 70px 0;
+  position: relative;
+}
+#menu::after {
+  content: url(../img/custom/hr.svg);
+  position: absolute;
+  top: -50px;
+  left: -20px;
+  width: calc(100% + 20px);
+  overflow: hidden;
+  object-fit: cover;
+}
+#menu::before {
+  content: url(../img/custom/hr.svg);
+  position: absolute;
+  bottom: -50px;
+  left: -20px;
+  width: calc(100% + 20px);
+  overflow: hidden;
+  object-fit: cover;
 }
 #menu h3 a{
   color: black;
@@ -868,11 +907,26 @@ main{
 /* contact */
 #contact {
   background-image: url(../img/bg/bg-contact.jpg);
-  padding-top: 50px;
-  padding-bottom: 50px;
-  
-  
-  
+  padding: 70px 0;
+  position: relative;
+}
+#contact::after {
+  content: url(../img/custom/hr.svg);
+  position: absolute;
+  top: -50px;
+  left: -20px;
+  width: calc(100% + 20px);
+  overflow: hidden;
+  object-fit: cover;
+}
+#contact::before {
+  content: url(../img/custom/hr.svg);
+  position: absolute;
+  bottom: -50px;
+  left: -20px;
+  width: calc(100% + 20px);
+  overflow: hidden;
+  object-fit: cover;
 }
 
 /* #contact::after{
