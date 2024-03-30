@@ -243,8 +243,8 @@ main{
   align-items: center;
   margin-top: 100px;
   flex-direction: column;
-  padding-top: 250px;
-  padding-bottom: 100px;
+  padding-top: 300px;
+  padding-bottom: 200px;
 
   background-color: white;
   border-right: 2px dotted lightgreen;
@@ -300,7 +300,31 @@ main{
 #about li:hover{
   color: lightblue;
 }
+#about::after {
+  background-image: url(../img/custom/sprites.svg);
+  background-position: 0 0;
+  width: 150px;
+  height: 320px;
+  content: "";
+  position: absolute;
+  top: 150px;
+  right: 150px;
+  transform: rotate(-45deg);
+  z-index: 5;
+}
 
+#about::before {
+  background-image: url(../img/custom/sprites.svg);
+  width: 150px;
+  height: 320px;
+  content: "";
+  background-position: -450px 0;
+  position: absolute;
+  top: 550px;
+  left: 125px;
+  transform: rotate(-45deg);
+  z-index: 5;
+}
 /* video */
 .video-player {
   position: relative;
@@ -918,6 +942,7 @@ main{
   width: calc(100% + 20px);
   overflow: hidden;
   object-fit: cover;
+  z-index: 6;
 }
 #contact::before {
   content: url(../img/custom/hr.svg);
@@ -927,22 +952,8 @@ main{
   width: calc(100% + 20px);
   overflow: hidden;
   object-fit: cover;
+  z-index: 6;
 }
-
-/* #contact::after{
-  content: '';
-  display: block;
-  background-image: url(../img/custom/hr.svg);
-  background-size: contain;
-  width: 1200px;
-  height: 50px;
-}
-
-#contact::before{
-  content: url(../img/custom/hr.svh);
-
-}
- */
 #contact .heading{
   text-align: center;
 }
@@ -1057,38 +1068,52 @@ main{
 }
 
 /* footer */
-footer{
+
+footer .section-content{
   height: 200px;
-  width: 100%;
-  max-width: 1200px;
-  margin-left: auto; 
-  margin-right: auto;
   background-color: white;
   border-right: 2px dotted lightgreen;
   border-left: 2px dotted lightgreen;
   font-weight: bold;
   font-family: 'Spectral', sans-serif;
-}
-
-footer .section-content{
-  height: auto;
-  align-items: center;
+  display: grid;
+  grid-column: 1fr 1fr 1fr;
+  grid-row: 1fr;
+  position: relative;
 }
 
 footer span a{
-  margin-left: 5%;
   color: black;
-  
+  z-index: 6;
 }
 
 footer span a:hover{
   color: lightgreen;
 }
-
-footer span:last-child::before{
-  content: url(../img/custom/gang.svg);
-  margin-left: 10%;
-  margin-right: 10%;
+footer span:nth-child(1){
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+footer span:nth-child(2){
+  display: flex;
+  align-items: center;
+  grid-column-start: 3;
+  grid-column-end: 4;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+footer span:nth-child(1)::after{
+  content: '';
+  background-image: url(../img/custom/gang.svg);
+  z-index: 6;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 
