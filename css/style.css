@@ -237,7 +237,7 @@ main{
 
 /* main */
 #about{
-  display: flex;
+  display: grid;
   position: relative;
   justify-content: center;
   align-items: center;
@@ -278,6 +278,14 @@ main{
   list-style: none;
   padding: 0;
   margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+#about .name{
+  display: flex;
+  align-items: center;
+  justify-content: end;
 }
 #about li {
   display: inline;
@@ -303,6 +311,8 @@ main{
   position: relative;
   width: 100%;
   max-width: 600px; /* Adjust as needed */
+  margin: auto;
+  overflow: hidden;
 }
 
 .video-content {
@@ -319,54 +329,81 @@ main{
   bottom: 0;
   left: 0;
   width: 100%;
-  padding: 5px;
-  box-sizing: border-box;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.video-controls button {
-  background-color: transparent;
-  border: none;
-  color: green;
-  cursor: pointer;
-  outline: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 10px;
 }
 
 .progress {
-  flex-grow: 1;
-  margin: 0 10px;
+  width: 100%;
+  height: 10px;
+  background-color: #000;
+  grid-row-start: 2;
+  grid-column-start: 1;
+  grid-column-end: 7;
 }
 
 .progress-bar {
   background-color: green;
-  height: 5px;
 }
+
+.playpause {
+  background-color: transparent;
+  border: none;
+  color: green;
+  cursor: pointer;
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+
+/* .playpause::after {
+  content: "";
+  border-style: solid;
+  border-width: 10px 0 10px 20px;
+  border-color: transparent transparent transparent #fff;
+} */
+
+.mute {
+  background-color: transparent;
+  border: none;
+  color: green;
+  cursor: pointer;
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+
+/* .mute::after {
+  content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"><path d="M10 4v4h4l5 5v6l-1.79-1.79A7.96 7.96 0 0 0 19 12c0-4.42-3.58-8-8-8zm-1.5 7.5l-4-4L5 8.91 6.91 10H3v4h3.91L5 15.09 4.5 15.5l4-4zM12 6h2l6 6v4l-2 2v-1.91l2-2V12l-5-5h-3V6zm-2 2v2H8.91L10 8.91z"/></svg>');
+} */
+
+.fullscreen {
+  background-color: transparent;
+  border: none;
+  color: green;
+  cursor: pointer;
+  grid-column-start: 6;
+  grid-column-end: 7;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+
+/* .fullscreen::after {
+  content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"><path d="M5 3v3h3M16 3h3v3M5 16V8h3m10 10v-3h3M5 5h14v14H5z"/></svg>');
+} */
 
 .time {
   color: green;
-  font-size: 14px;
-}
-/* Play/Pause Button Styles */
-.playpause::before {
-  content: '\25B6'; /* Unicode triangle for play */
-  font-family: 'Calistoga', sans-serif;/* Use a font that includes the triangle icon */
+  grid-column-start: 3;
+  grid-column-end: 4;
+  grid-row-start: 1;
+  grid-row-end: 2;
 }
 
-.playing .playpause::before {
-  content: '\II'; /* Unicode double vertical bar for pause */
-}
 
-/* Mute Button Styles */
-.mute::before {
-  content: '\1F508'; /* Unicode speaker with cancellation stroke for unmuted */
-  font-family: 'Calistoga', sans-serif; /* Use a font that includes the speaker icon */
-}
-
-.muted .mute::before {
-  content: '\1F507'; /* Unicode speaker for muted */
-}
 
 
 /* TEAM */
@@ -653,7 +690,9 @@ main{
   background-size: cover;
   padding: 50px 0;
 }
-
+#menu h3 a{
+  color: black;
+}
 #menu .heading{
   text-align: center;
 }
